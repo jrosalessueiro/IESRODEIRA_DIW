@@ -1,52 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formateando texto</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
 
-  <style>
-    body {
-        font-family: Arial, sans-serif;
-    }
-    h1 {
-        text-align: center;
-    }
-    h2 {
-        text-align: left;
-    }
-    p {
-        margin: 10px 0;
-    }
-</style>
+        h1,
+        h2,
+        h3 {
+            color: #2c3e50;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        ul,
+        ol {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 
-<body>
+<main>
+    <h1>TAREA UD01DIW PARA TRABAJAR CON ENLACES</h1>
 
-  <h1 align="center">DAW DWEC</h1>
-  <h2 align="left">Tarea preliminar</h2>
-  <hr>
-  <p>Este es el primer parrafo. </p>
-  <p align="center">Este parrafo este centrado.</p>
-  <p>es la tercera linea.
-  <p>La cuarta "ya no" se junta con la tercera
-  <p> Esta es ahora la quinta linea.
+    <section id="indice">
+        <h2>INDICE</h2>
+        <ol>
+            <li><a href="#que-es-un-cms">¿QUÉ ES UN CMS?</a></li>
+            <li><a href="#ventajas-cms">VENTAJAS DE UN CMS</a></li>
+            <li><a href="#enlaces-cms">ENLACES A LAS PÁGINAS DE LOS CMS MÁS UTILIZADOS</a></li>
+        </ol>
+    </section>
 
-  <!--No conocía esta etiqueta-->
-  <pre>    Esta forma de escribir 
-                 no la conocía
-                        algo más que aprendo.
-     </pre>
+    <section id="que-es-un-cms">
+        <h2>¿QUÉ ES UN CMS?</h2>
+        <p>Un Sistema de Gestión de Contenidos (CMS) es una herramienta que permite crear, gestionar y modificar contenido digital sin necesidad de tener conocimientos técnicos profundos.</p>
+    </section>
 
-  <hr size=10>
-  <br>Este texto es normal.
-  <br>El área se mide en m<sup>2.</sup>
-  <br>La fómula del agua es H<sub>2</sub>O
-  <br>Cuando algo es importante<big>LO PONGO EN LETRAS MÁS GRANDES</big>
-  <br>Y cuando no importa<small>lo pongo en minusculas más pequeñas</small>
-  </hr>
-  </hr>
-</body>
+    <section id="ventajas-cms">
+        <h2>VENTAJAS DE UN CMS</h2>
+        <ul>
+            <li>Facilidad de uso</li>
+            <li>Accesibilidad</li>
+            <li>Actualizaciones rápidas</li>
+            <li>Flexibilidad</li>
+            <li>Mejora en SEO</li>
+            <li>Comunidad de soporte</li>
+        </ul>
+    </section>
+
+    <section id="enlaces-cms">
+        <h2>ENLACES A LAS PÁGINAS DE LOS CMS MÁS UTILIZADOS</h2>
+        <ul>
+            <li><a href="https://wordpress.org" target="_blank" title="WordPress: CMS popular para blogs y sitios web.">WordPress</a></li>
+            <li><a href="https://www.joomla.org" target="_blank" title="Joomla: CMS flexible y poderoso.">Joomla</a></li>
+            <li><a href="https://www.drupal.org" target="_blank" title="Drupal: CMS orientado a desarrolladores.">Drupal</a></li>
+        </ul>
+    </section>
+</main>
 
 </html>
