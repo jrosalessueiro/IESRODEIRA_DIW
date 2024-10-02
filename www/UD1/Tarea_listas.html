@@ -1,78 +1,145 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tarea Listas</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
             background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
         }
-    
-        nav ul {
-            list-style: none;
-            padding: 0;
+
+        h1,
+        h2,
+        h3 {
+            color: #2c3e50;
         }
-    
-        nav ul li {
-            display: inline;
-            margin-right: 10px;
+
+        a {
+            color: #3498db;
+            text-decoration: none;
         }
-    
-        section, aside {
-            margin: 20px;
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        ul,
+        ol {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+
+        ul {
+            list-style-type: disc;
+        }
+
+        .nested {
+            list-style-type: circle;
+            margin-left: 20px;
+        }
+
+        .no_marcador {
+            list-style-type: none;
+        }
+
+        .negrita {
+            list-style-type: none;
+            font-weight: bold;
+        }
+
+        ol {
+            list-style-type: decimal;
+        }
+
+        li {
+            margin-bottom: 10px;
         }
     </style>
 </head>
 
-<body>
-    <header>
-        <hgroup>
-            <h1>El blog de Mary</h1>
-            <h2>Este es el blog de cocina de Mary</h2>
-        </hgroup>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#recetas">Recetas</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-    </nav>
-    <section>
-        <article>
-            <h2>Receta de Pastel de Chocolate</h2>
-            <p>Hoy vamos a aprender cómo hacer un delicioso pastel de chocolate...</p>
-        </article>
-        <article>
-            <h2>Receta de Ensalada César</h2>
-            <p>La ensalada César es un plato clásico y saludable...</p>
-        </article>
-        <article>
-            <h2>Receta de Sopa de Tomate</h2>
-            <p>La sopa de tomate es una receta fácil y nutritiva...</p>
-        </article>
+<main>
+    <h1>TAREA UD01DIW PARA TRABAJAR CON LISTAS</h1>
+
+    <section id="indice">
+        <h2>Contenido sobre Internet</h2>
+        <ol>
+            <li><a href="#protocolos">Principales protocolos</a></li>
+            <li><a href="#conexion">Formas de conectarse</a></li>
+        </ol>
     </section>
-    <aside>
-        <h2>Redes Sociales</h2>
+
+    <section id="protocolos">
+        <h2>Principales protocolos</h2>
         <ul>
-            <li><a href="https://x.com/mary">X</a></li>
-            <li><a href="https://facebook.com/mary">Facebook</a></li>
+            <li>Transmision de ficheros</li>
+            <ul class="nested">
+                <li>FTP</li>
+            </ul>
+            <li>Correo electrónico</li>
+            <ul class="nested">
+                <li>IMAP</li>
+                <li>POP</li>
+                <li>SMTP</li>
+            </ul>
         </ul>
-        <h2>Posts Antiguos</h2>
-        <ul>
-            <li><a href="#post1">Pastel de Zanahoria</a></li>
-            <li><a href="#post2">Pasta con Pesto</a></li>
+    </section>
+
+    <section id="conexion">
+        <h2>Formas de conectarse</h2>
+        <ul class="no_marcador">
+            <li class="negrita">Red Telefónica Conmutada (RTC)</li>
+            <ul class="no_marcador">
+                <li>La línea telefónica de toda la vida. Para acceder a internet es necesario un modem.</li>
+            </ul>
+            <li class="negrita">Red Digital de Servicios Integrados (RDSI)</li>
+            <ul class="no_marcador">
+                <li>Una línea telefónica especial. Para acceder a internet es necesario un modem RDSI.</li>
+            </ul>
+            <li class="negrita">Linea de Abonado Digital Asimétrica (ADSL)</li>
+            <ul class="no_marcador">
+                <li>Se basa en la conversión de una línea RTC en una línea de alta velocidad. Para
+                    acceder a internet es necesario un modem ADSL.</li>
+            </ul>
+            <li class="negrita">Fibra Óptica</li>
+            <ul class="no_marcador">
+                <li>Una línea de fibra óptica. Normalmente la fibra óptica no llega hasta el usuario
+                    final, por lo que el término más apropiado es Fibra híbrida coaxial.</li>
+            </ul>
+
         </ul>
-    </aside>
-    <footer>
-        <p>&copy; 2024 El blog de Mary</p>
-        <p><a href="#privacidad">Política de Privacidad</a> | <a href="#terminos">Términos y Condiciones</a></p>
-    </footer>
-</body>
+    </section>
+</main>
 
 </html>
