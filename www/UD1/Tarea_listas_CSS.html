@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea Listas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #2c3e50;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        ul,
+        ol {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+
+        ul {
+            list-style-type: disc;
+        }
+
+        .nested {
+            list-style-type: circle;
+            margin-left: 20px;
+        }
+
+        .no_marcador {
+            list-style-type: none;
+        }
+
+        .negrita {
+            list-style-type: none;
+            font-weight: bold;
+        }
+
+        ol {
+            list-style-type: decimal;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<main>
+    <h1>TAREA UD01DIW PARA TRABAJAR CON LISTAS</h1>
+
+    <section id="indice">
+        <h2>Contenido sobre Internet</h2>
+        <ol>
+            <li><a href="#protocolos">Principales protocolos</a></li>
+            <li><a href="#conexion">Formas de conectarse</a></li>
+        </ol>
+    </section>
+
+    <section id="protocolos">
+        <h2>Principales protocolos</h2>
+        <ul>
+            <li>Transmision de ficheros</li>
+            <ul class="nested">
+                <li>FTP</li>
+            </ul>
+            <li>Correo electrónico</li>
+            <ul class="nested">
+                <li>IMAP</li>
+                <li>POP</li>
+                <li>SMTP</li>
+            </ul>
+        </ul>
+    </section>
+
+    <section id="conexion">
+        <h2>Formas de conectarse</h2>
+        <ul class="no_marcador">
+            <li class="negrita">Red Telefónica Conmutada (RTC)</li>
+            <ul class="no_marcador">
+                <li>La línea telefónica de toda la vida. Para acceder a internet es necesario un modem.</li>
+            </ul>
+            <li class="negrita">Red Digital de Servicios Integrados (RDSI)</li>
+            <ul class="no_marcador">
+                <li>Una línea telefónica especial. Para acceder a internet es necesario un modem RDSI.</li>
+            </ul>
+            <li class="negrita">Linea de Abonado Digital Asimétrica (ADSL)</li>
+            <ul class="no_marcador">
+                <li>Se basa en la conversión de una línea RTC en una línea de alta velocidad. Para
+                    acceder a internet es necesario un modem ADSL.</li>
+            </ul>
+            <li class="negrita">Fibra Óptica</li>
+            <ul class="no_marcador">
+                <li>Una línea de fibra óptica. Normalmente la fibra óptica no llega hasta el usuario
+                    final, por lo que el término más apropiado es Fibra híbrida coaxial.</li>
+            </ul>
+
+        </ul>
+    </section>
+</main>
+
+</html>
