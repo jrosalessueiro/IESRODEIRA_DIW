@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* Coloca los elementos en columna */
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+}
+
+/* Estilo para la zona de imagen */
+.imagenes {
+    flex: 3; /* La imagen ocupa 3 partes de 4 */
+    position: relative;
+    background-color: #0f0f0f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagenes img {
+    width: 100%;
+    height: auto;
+    filter: grayscale(80%);
+    object-fit: cover;
+}
+
+.notas {
+    position: absolute;
+    bottom: 10%;
+    left: 10%;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.notas p {
+    color: #e63946;
+    font-size: 1.5rem;
+    font-style: italic;
+}
+
+/* Estilo para la lista de historias */
+.historias {
+    flex: 1; /* La lista ocupa 1 parte de 4 */
+    padding: 20px;
+    background-color: #1c1c1c;
+    border-top: 2px solid #333; /* Borde en la parte superior */
+}
+
+.historias h1 {
+    color: #e63946;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.historias ul {
+    list-style: none;
+}
+
+.historias li {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+
+.historias li:hover {
+    color: #e63946;
+    cursor: pointer;
+}
+
+/* Diseño responsivo */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .historias, .imagenes {
+        width: 100%;
+        height: auto; /* Ajuste automático en pantallas pequeñas */
+    }
+
+    .notas p {
+        font-size: 1.2rem;
+    }
+}
