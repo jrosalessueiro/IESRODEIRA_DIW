@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>El Blog del Viajero</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #fafafa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #ffbe0b; /* Color amarillo vibrante */
+            color: #001d3d; /* Contraste oscuro para el texto */
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        nav {
+            background-color: #001d3d; /* Azul oscuro */
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: #ffffff;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #ffbe0b;
+            color: #001d3d;
+        }
+
+        main {
+            display: flex;
+            flex-direction: row;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        article {
+            flex: 2;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        article h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: #001d3d;
+        }
+
+        aside {
+            flex: 1;
+            background-color: #ff006e; /* Color fucsia para el contraste */
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        aside h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: #ffffff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #001d3d;
+            color: white;
+        }
+
+        /* Diseño asimétrico */
+        .presentacion {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+            padding: 40px 20px;
+        }
+
+        .presentacion img {
+            max-width: 300px;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .presentacion div {
+            flex: 1;
+        }
+
+        .presentacion h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            color: #001d3d;
+        }
+
+        .presentacion p {
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        /* Categorías del blog */
+        .categorias {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .categorias div {
+            background-color: #ffbe0b;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            flex: 1;
+            margin: 0 10px;
+        }
+
+        .categorias div h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: #001d3d;
+        }
+
+        .categorias div p {
+            font-size: 1rem;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>El Blog del Viajero</h1>
+        <p>Comparte y descubre aventuras por el mundo.</p>
+    </header>
+
+    <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Mis Viajes</a>
+        <a href="#">Contacto</a>
+    </nav>
+
+    <div class="presentacion">
+        <img src="imagen_blog.avif" alt="Viajero con mochila">
+        <div>
+            <h2>Sobre mí</h2>
+            <p>Mi nombre es Pepe, hace cinco años decidí recorrer el mundo con una mochila. He visitado todos los continentes y cada experiencia ha sido una aventura inolvidable. Este blog nace para compartir esas vivencias contigo y ayudarte a descubrir el mundo de una forma diferente.</p>
+        </div>
+    </div>
+
+    <main>
+        <article>
+            <h2>Últimas Aventuras</h2>
+            <p>Aquí puedes leer sobre los destinos más recientes, con anécdotas emocionantes y consejos para viajeros.</p>
+
+            <h2>Mis Destinos Favoritos</h2>
+            <p>Desde las selvas de América del Sur hasta los desiertos de África, cada rincón del planeta tiene algo especial que ofrecer. Descubre mis destinos favoritos y por qué los recomendaría.</p>
+        </article>
+
+        <aside>
+            <h2>Redes Sociales</h2>
+            <p>Sígueme para actualizaciones diarias:</p>
+            <ul>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Facebook</a></li>
+            </ul>
+        </aside>
+    </main>
+
+    <section class="categorias">
+        <div>
+            <h3>Europa</h3>
+            <p>Historias de las principales capitales europeas y rutas fuera del circuito turístico.</p>
+        </div>
+        <div>
+            <h3>Asia</h3>
+            <p>Explorando desde las metrópolis hasta los templos más remotos.</p>
+        </div>
+        <div>
+            <h3>América</h3>
+            <p>Aventuras en las selvas y paisajes asombrosos de América.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 El Blog del Viajero. Todos los derechos reservados
