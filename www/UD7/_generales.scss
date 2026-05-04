@@ -1,0 +1,11 @@
+// Función para aclarar un color
+@function aclararColor($color) {
+  @return lighten($color, 20%);
+}
+
+// Mixin para cajas con sombra y bordes (común en el diseño)
+@mixin caja-estandar {
+  border: 1px solid #000;
+  padding: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}

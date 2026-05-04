@@ -1,0 +1,32 @@
+header {
+  background-image: url("img/hojasVerdes.jpg"); // Fondo del logo según imagen
+  #logo h1 {
+    background-color: $color-verde;
+    color: white;
+    display: inline-block;
+    padding: 10px 40px;
+  }
+
+  nav#menu {
+    background-color: $color-gris-fondo;
+    ul {
+      display: flex;
+      list-style: none;
+
+      // Bucle para las opciones del nav
+      $colores-nav: $color-rojo, $color-azul, $color-verde, #444;
+      @for $i from 1 through length($colores-nav) {
+        li:nth-child(#{$i}) a {
+          color: nth($colores-nav, $i);
+          font-size: $tamano-base +
+            ($i * 2); // Operación: aumenta tamaño según posición
+          border-left: #{$i}px
+            solid
+            black; // Operación: grosor de borde progresivo
+          text-decoration: none;
+          padding: 10px;
+        }
+      }
+    }
+  }
+}

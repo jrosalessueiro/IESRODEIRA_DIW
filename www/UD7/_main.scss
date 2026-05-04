@@ -1,0 +1,50 @@
+// Clase base para los recuadros
+%recuadro-base {
+  width: 30px;
+  height: 30px;
+  border: 1px solid black;
+  margin-bottom: 5px;
+}
+
+#seleccion {
+  #verde {
+    @extend %recuadro-base;
+    background-color: green;
+  }
+  #rojo {
+    @extend %recuadro-base;
+    background-color: red;
+  }
+  #azul {
+    @extend %recuadro-base;
+    background-color: blue;
+  }
+}
+
+// Clase padre para herencia
+.formato-imagen {
+  border: 5px solid white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s;
+}
+
+#content1,
+#content2 {
+  .image {
+    @extend .formato-imagen; // Herencia
+    display: inline-block;
+    width: 200px;
+    height: 150px;
+    background-size: cover;
+    margin: 10px;
+  }
+
+  // Bucle para asignar fotos distintas a cada contenedor .image
+  @for $i from 1 through 3 {
+    .image:nth-child(#{$i}) {
+      background-image: url("img/image#{$i}.jpg");
+      // Operación: cada imagen un poco más grande que la anterior
+      transform: scale(0.9 + ($i * 0.05));
+    }
+  }
+}

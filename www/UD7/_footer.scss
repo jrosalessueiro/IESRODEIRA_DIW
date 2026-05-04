@@ -1,0 +1,25 @@
+footer {
+  display: flex;
+  width: 100%;
+
+  // Lista con los nombres de las clases exactos de tu HTML
+  $nombres: "uno", "dos", "tres";
+  $colores-footer: blue, darkblue, red;
+
+  @for $i from 1 through 3 {
+    // Seleccionamos el nombre de la lista según la posición $i
+    $clase: nth($nombres, $i);
+
+    .caja_#{$clase} {
+      flex: 1;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: yellow; // Según la imagen, las letras son amarillas
+      background-color: nth($colores-footer, $i);
+      font-size: 1.5em + ($i * 0.5); // Operación SASS para variar el tamaño
+      border: 1px solid black;
+    }
+  }
+}

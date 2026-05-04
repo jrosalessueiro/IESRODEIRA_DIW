@@ -1,0 +1,53 @@
+aside#sidebar {
+  width: 30%;
+  float: right; // Para que se pegue a la derecha
+
+  // Anidación de elementos internos
+  #about,
+  #login {
+    @include caja-estandar; // Aplicamos el mixin de bordes y sombras
+    margin-bottom: 20px;
+    background-color: white;
+
+    h4 {
+      border-bottom: 2px solid $color-gris-fondo;
+      margin-bottom: 10px;
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+
+  #about img {
+    width: 100%; // La imagen del caracol
+    height: auto;
+  }
+
+  // Estilo para el formulario dentro del aside
+  #login form {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      margin-top: 10px;
+      font-family: $fuente-principal;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      padding: 5px;
+      border: 1px solid #ccc;
+    }
+
+    input[type="submit"] {
+      margin-top: 15px;
+      background-color: $color-gris-fondo;
+      cursor: pointer;
+      transition: background-color 0.3s; // Transición solicitada
+
+      &:hover {
+        background-color: aclararColor($color-gris-fondo); // Uso de tu función
+      }
+    }
+  }
+}
