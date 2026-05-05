@@ -219,7 +219,7 @@ footer {
 .caja_dos,
 .caja_tres {
   flex: 1; /* Anchos iguales para las tres cajas */
-  padding: 10px; /* Texto alineado arriba a la izquierda por defecto */
+  padding: 0; /* Texto alineado arriba a la izquierda por defecto */
 }
 
 .caja_uno {
@@ -240,15 +240,30 @@ footer {
   color: white;
 }
 
+/* Regla específica para los textos */
+footer h1,
+footer h2,
+footer h3 {
+  margin: 0; /* Elimina el margen superior por defecto de los h1, h2, h3 */
+  line-height: 1; /* Reduce el espacio entre líneas al mínimo para que no haya aire arriba */
+  padding: 0; /* Asegura que no haya relleno interno */
+  text-align: left; /* Alineado a la izquierda según la imagen */
+}
+.caja_uno h1,
+.caja_dos h2,
+.caja_tres h3 {
+  padding-left: 10px;
+  padding-top: 0px;
+}
 /* Tamaños de texto escalonados */
 footer h1 {
-  font-size: 70px;
+  font-size: 120px;
 }
 footer h2 {
-  font-size: 45px;
+  font-size: 95px;
 }
 footer h3 {
-  font-size: 35px;
+  font-size: 50px;
 }
 
 .clearfix {
