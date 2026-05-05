@@ -1,0 +1,256 @@
+/* --- 1. RESET Y CONFIGURACIÓN BASE --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  /* La imagen de hojas verdes se ve en toda la pantalla (Header, Body, Footer) */
+  background: url("img/hojas.jpg") no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+}
+
+/* --- 2. CABECERA (HEADER) --- */
+header {
+  width: 100%; /* Ocupa el ancho completo */
+  background: transparent;
+}
+
+#logo {
+  background-color: #1a4d2e;
+  width: 280px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#logo h1 {
+  color: white;
+  letter-spacing: 5px;
+  font-size: 40px;
+}
+
+/* Menú de navegación ocupa el ancho completo de la pantalla */
+#menu {
+  background-color: #cccccc;
+  height: 45px;
+  border-bottom: 2px solid #999;
+  width: 100%;
+}
+
+#menu ul {
+  list-style: none;
+  display: flex;
+  padding-left: 20px;
+  align-items: center;
+  height: 100%;
+}
+
+#menu ul li {
+  padding: 0 15px;
+  border-right: 1px solid #666;
+}
+
+#menu ul li a {
+  text-decoration: none;
+  color: #444;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#menu ul li:nth-child(2) a {
+  color: #d9534f;
+} /* RELOJ en rojo */
+#menu ul li:nth-child(3) a {
+  color: #337ab7;
+} /* SOBRE MI en azul */
+
+/* --- 3. SELECTOR LATERAL (Cuadraditos en el body a la izquierda) --- */
+#seleccion {
+  position: absolute; /* Para que flote sobre el fondo de hojas del body */
+  left: 20px;
+  top: 350px;
+  z-index: 10;
+}
+
+#seleccion div {
+  width: 25px;
+  height: 25px;
+  margin-bottom: 8px;
+  border: 1px solid #333;
+}
+
+#verde {
+  background: #1a4d2e;
+}
+#rojo {
+  background: #d9534f;
+}
+#azul {
+  background: #337ab7;
+}
+
+/* --- 4. CUERPO CENTRAL (ZONA BLANCA OPACA) --- */
+#global {
+  width: 70%; /* No ocupa el ancho completo */
+  margin: 40px auto; /* Centrado y separado del header/footer */
+  background-color: white; /* Blanco opaco, sin transparencia */
+  padding: 30px;
+  min-height: 700px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Imágenes del Main en paralelo (una al lado de la otra) y sin marcos */
+#content1 .container {
+  display: flex;
+  gap: 15px; /* Espacio entre las dos imágenes */
+  margin-top: 15px;
+}
+
+/* Estilo para los divs que contienen las imágenes */
+.full-image {
+  flex: 1;
+  height: 300px; /* Aumentamos de 180px a 250px */
+  background-size: cover;
+  background-position: center;
+  border: none;
+}
+
+#content1 .container .image {
+  flex: 1; /* Para que ocupen el ancho del main en paralelo */
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  border: none; /* Sin marcos blancos */
+}
+
+/* Rutas de las imágenes (Asegúrate de que la carpeta img existe) */
+.cielo {
+  background-image: url("img/cielo.jpg");
+}
+
+.rojas {
+  background-image: url("img/rojo.jpg");
+}
+
+#content1 .container .image:nth-child(1) {
+  background-image: url("img/cielo.jpg");
+}
+#content1 .container .image:nth-child(2) {
+  background-image: url("img/rojo.jpg");
+}
+
+/* --- 5. SIDEBAR (LATERAL DERECHO) --- */
+#sidebar {
+  float: right;
+  width: 30%;
+  margin-top: 20px;
+}
+
+#sidebar h4 {
+  display: flex;
+  align-items: center;
+  color: #666;
+  margin: 15px 0;
+  font-size: 14px;
+}
+
+#sidebar h4::before,
+#sidebar h4::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #ccc;
+}
+
+#sidebar img {
+  width: 100%;
+  height: auto;
+}
+
+#sidebar p {
+  font-size: 26px;
+  color: #333;
+  margin-top: 8px;
+  text-align: justify;
+}
+
+#login form {
+  display: flex;
+  flex-direction: column; /* Alinea los hijos en vertical */
+}
+
+#login label {
+  font-size: 13px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+#login input[type="text"],
+#login input[type="password"] {
+  width: 100%; /* Ocupa todo el ancho del sidebar */
+  height: 30px;
+  padding: 5px;
+  margin-top: 3px;
+  border: 1px solid #ccc;
+}
+
+#login input[type="submit"] {
+  width: fit-content; /* El botón no ocupa todo el ancho, solo su texto */
+  margin-top: 15px;
+  padding: 5px 15px;
+  background: #eee;
+  border: 1px solid #999;
+  cursor: pointer;
+}
+
+/* --- 6. FOOTER ANCHO COMPLETO Y ESCALONADO --- */
+footer {
+  display: flex;
+  width: 100%; /* Ancho completo */
+  align-items: flex-start; /* Para que las alturas sean desiguales */
+}
+
+.caja_uno,
+.caja_dos,
+.caja_tres {
+  flex: 1; /* Anchos iguales para las tres cajas */
+  padding: 10px; /* Texto alineado arriba a la izquierda por defecto */
+}
+
+.caja_uno {
+  background-color: #0000ff; /* Azul sólido */
+  height: 180px; /* La más alta */
+  color: yellow;
+}
+
+.caja_dos {
+  background-color: #adff2f; /* Verde lima sólido */
+  height: 140px;
+  color: black;
+}
+
+.caja_tres {
+  background-color: #ff0000; /* Rojo sólido */
+  height: 100px; /* La más bajita */
+  color: white;
+}
+
+/* Tamaños de texto escalonados */
+footer h1 {
+  font-size: 70px;
+}
+footer h2 {
+  font-size: 45px;
+}
+footer h3 {
+  font-size: 35px;
+}
+
+.clearfix {
+  clear: both;
+}
