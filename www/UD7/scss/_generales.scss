@@ -1,25 +1,36 @@
-// --- FUNCIÓN: aclararColor ---
-// Recibe un color y devuelve una versión más clara usando la función nativa lighten
+// --- LÓGICA DE PROGRAMACIÓN: FUNCIÓN PERSONALIZADA (@function) ---
+// Las funciones en SASS permiten realizar cálculos o procesar valores para devolver un resultado.
 @function aclararColor($color, $porcentaje: 10%) {
-  @return lighten(
-    $color,
-    $porcentaje
-  ); // Requisito: devuelve el color más claro
+  // Utilizamos 'lighten', una función interna de SASS que manipula la luminosidad del color.
+  // @return devuelve el nuevo color procesado al lugar donde se llamó la función.
+  @return lighten($color, $porcentaje);
 }
 
-// --- MIXIN: flex-centrado ---
-// Evita repetir "display: flex, align-items, etc" en todo el código
+// --- REUTILIZACIÓN DE CÓDIGO: MIXINS (@mixin) ---
+// Los mixins son bloques de código CSS que puedes "grabar" para usarlos en múltiples sitios
+
+// Mixin con parámetros: Permite configurar el Flexbox de forma dinámica
 @mixin flex-centrado($direction: row, $justify: center, $align: center) {
   display: flex;
+  // Usamos variables de argumento ($direction, etc.) para que el mixin sea flexible.
   flex-direction: $direction;
   justify-content: $justify;
   align-items: $align;
 }
 
-// --- MIXIN: imagen-base ---
-// Estilos que comparten todas las imágenes del main para ahorrar líneas
+// Mixin de estilos compartidos: para elementos visuales repetitivos.
 @mixin imagen-base {
   background-size: cover;
   background-position: center;
-  flex: 1; // Para que se repartan el ancho en el contenedor flex
+  // SASS facilita el diseño elástico (Responsive) agrupando propiedades de flexbox.
+  flex: 1;
+}
+
+// Mixin de estructura: Centraliza el diseño de los contenedores (Aside, Cards, etc.).
+@mixin caja-estandar {
+  border: 1px solid #ccc;
+  // Encapsulamos sombras y bordes para mantener la coherencia visual en toda la web.
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  border-radius: 5px;
 }

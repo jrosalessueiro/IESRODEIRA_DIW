@@ -1,65 +1,129 @@
+// Importamos variables y herramientas globales para reutilizar colores y mixins en este módulo.
 @import "variables";
 @import "generales";
 
+/* --- LÓGICA DE PROGRAMACIÓN: FUNCIÓN PROPIA (@function) --- */
+// SASS permite crear funciones para automatizar cálculos complejos.
+// Supera al CSS tradicional al permitir que el ancho se adapte dinámicamente según el número de columnas.
+@function calcularAncho($columnas) {
+  @return (100% / $columnas) - 2%;
+}
+
+/* --- ANIDACIÓN ESTRUCTURAL (NESTING) --- */
+// Organizamos el código siguiendo la jerarquía del HTML para mejorar la mantenibilidad.
 #global {
-  width: 70%; // El cuadro blanco centrado[cite: 1]
+  width: 70%;
   margin: 40px auto;
-  background-color: $color-blanco;
+  background-color: $color-blanco; // USO DE VARIABLE: Centralización de colores.
   padding: 30px;
-  min-height: 700px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
 
   section#content1 {
+    width: 100%;
+    margin-bottom: 20px;
+
+    h2 {
+      margin-bottom: 15px;
+      font-family: $fuente-base; // VARIABLE: Consistencia tipográfica.
+    }
+
+    /* --- ESTRUCTURA DE CONTROL: BUCLE PARA IMÁGENES (@each) --- */
+    // SASS recorre una lista para generar clases repetitivas de forma eficiente.
     .container {
       display: flex;
       gap: 15px;
+      margin-bottom: 30px;
 
-      // --- BUCLE DE IMÁGENES ---
-      // Usamos @each para asignar las fotos de fondo
-      $fotos: "cielo", "rojas";
+      $fotos: "cielo", "rojo"; // Definición de lista local.
       @each $foto in $fotos {
         .#{$foto} {
-          @include imagen-base; // Hereda características comunes del mixin
+          /* --- USO DE MIXIN (@include) --- */
+          // Heredamos estilos base para evitar duplicidad de código en el CSS final.
+          @include imagen-base;
           height: 250px;
-          background-image: url("img/#{$foto}.jpg"); // Genera la ruta dinámicamente
+          // INTERPOLACIÓN (#{}): Permite usar variables dentro de cadenas de texto como rutas de archivos.
+          background-image: url("../img/#{$foto}.jpg");
         }
       }
     }
 
-    // --- DISEÑO LIBRE: TABLA DE DATOS ---
-    // Demostración de anidación profunda y uso del carácter &
+    /* --- DISEÑO LIBRE: LÓGICA AVANZADA (Bucle + Condicional) --- */
+    .zona-extra {
+      margin-bottom: 40px;
+      display: flex;
+      justify-content: space-between;
+
+      // Generamos tres tarjetas distintas usando un bucle @for.
+      @for $i from 1 through 3 {
+        .card-#{$i} {
+          /* --- LLAMADA A FUNCIÓN Y OPERACIONES --- */
+          // El ancho se determina mediante el retorno de nuestra función personalizada.
+          width: calcularAncho(3);
+          padding: 15px;
+          border-radius: 8px;
+          font-family: $fuente-base;
+
+          /* --- ESTRUCTURA CONDICIONAL (@if / @else) --- */
+          // SASS evalúa una condición para decidir qué estilos aplicar, algo imposible en CSS puro.
+          // aplicamos un estilo diferente exclusivamente a la tarjeta central (número 2).
+          @if $i == 2 {
+            background-color: #f2f2f2;
+            border: 1px solid $color-principal;
+            color: #333;
+          } @else {
+            background-color: $color-principal;
+            color: white;
+          }
+
+          h5 {
+            margin-bottom: 8px;
+            text-transform: uppercase;
+          }
+
+          p {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+
+    /* --- FORMATO TABLA: ANIDACIÓN Y REFERENCIA (&) --- */
+    // SASS facilita el estilo de tablas complejas sin repetir selectores largos.
     .tabla-info {
-      margin-top: 30px;
       width: 100%;
       border-collapse: collapse;
+      font-family: $fuente-base;
 
       tr {
+        /* --- CARÁCTER & --- */
+        // Se usa para concatenar pseudo-clases al padre directamente (tr:nth-child).
         &:nth-child(even) {
           background: #f9f9f9;
-        } // & referencia al tr padre
+        }
 
         th {
           background: $color-principal;
           color: white;
-          padding: 10px;
+          padding: 12px;
+          text-align: left;
         }
 
         td {
           border: 1px solid #ddd;
           padding: 10px;
 
-          // Efecto sobre botón dentro de tabla
           .btn-ver {
-            padding: 5px;
+            display: inline-block;
+            padding: 6px 12px;
             background: $color-principal;
             color: white;
-            transition: all 0.3s; // Transición requerida
+            text-decoration: none;
+            transition: all 0.3s;
 
             &:hover {
-              background: aclararColor(
-                $color-principal,
-                15%
-              ); // Uso de la función
+              /* --- USO DE FUNCIÓN OBLIGATORIA --- */
+              // Llamamos a aclararColor para generar el tono del hover dinámicamente.
+              background: aclararColor($color-principal, 15%);
               cursor: pointer;
             }
           }
@@ -67,4 +131,10 @@
       }
     }
   }
+}
+
+// Estilos globales de posicionamiento fuera del contenedor anidado.
+#content1 {
+  width: 100%;
+  float: none;
 }

@@ -1,17 +1,25 @@
+// Importamos las variables y herramientas generales para que SASS reconozca los colores y mixins.
 @import "variables";
 @import "generales";
 
+/* --- ANIDACIÓN ESTRUCTURAL (NESTING) --- */
+// SASS permite agrupar todo lo que pertenece al 'header' en un solo bloque, mejorando la lectura del código.
 header {
   width: 100%;
   background: transparent;
 
   #logo {
+    // USO DE VARIABLE: Aplicamos el color principal definido en el archivo de variables.
     background-color: $color-principal;
     width: 280px;
     height: 70px;
-    @include flex-centrado; // Aplicamos el mixin de centrado[cite: 1]
+
+    /* --- USO DE MIXIN (@include) --- */
+    // Llamamos al mixin 'flex-centrado' para evitar escribir las 4 líneas de flexbox manualmente.
+    @include flex-centrado;
 
     h1 {
+      // VARIABLE: Aseguramos que el blanco sea consistente en toda la aplicación.
       color: $color-blanco;
       letter-spacing: 5px;
       font-size: 40px;
@@ -22,32 +30,46 @@ header {
     background-color: $color-gris-menu;
     height: 45px;
     border-bottom: 2px solid $color-borde-menu;
+    width: 100%;
 
+    // Anidación de la lista del menú
     ul {
       list-style: none;
-      @include flex-centrado(row, flex-start, center);
+      display: flex;
       height: 100%;
       padding-left: 20px;
+      align-items: center;
 
-      // --- BUCLE PARA EL NAV ---
-      // Recorre los 4 elementos del menú aplicando operaciones matemáticas
+      /* --- BUCLE DINÁMICO (@for) --- */
+      // SASS recorre del 1 al 4 para aplicar estilos únicos a cada elemento 'li' sin escribirlos uno a uno.
       @for $i from 1 through 4 {
+        /* --- INTERPOLACIÓN (#{}) --- */
+        // Usamos #{$i} para que SASS identifique el número de hijo (1, 2, 3, 4) en el selector :nth-child.
         li:nth-child(#{$i}) {
-          padding: 0 (10px + $i); // Operación: suma píxeles según la posición
-          border-right: #{$i *
-            1px}
-            solid
-            #666; // Operación: el borde crece según el índice
+          padding: 0 15px;
+
+          /* --- OPERACIONES MATEMÁTICAS --- */
+          // SASS calcula el grosor del borde automáticamente multiplicando y dividiendo la variable $i.
+          border-right: (1px * $i / 2) solid #666;
 
           a {
             text-decoration: none;
+            text-transform: uppercase;
             font-weight: bold;
-            font-size: $tamano-base +
-              $i; // Operación: el texto crece ligeramente
-            color: nth(
-              $colores-nav,
-              $i
-            ); // Extrae el color de la lista de variables
+
+            /* --- OPERACIÓN CON VARIABLES --- */
+            // El tamaño de la letra aumenta progresivamente sumando píxeles a la variable base.
+            font-size: $tamano-base + ($i * 1px);
+
+            /* --- MANIPULACIÓN DE LISTAS (nth) --- */
+            // SASS extrae un color distinto de la lista de variables según la posición del bucle.
+            color: nth($colores-menu-nuevo, $i);
+          }
+
+          /* --- CARÁCTER & (REFERENCIA AL PADRE) --- */
+          // Evita repetir el selector li:nth-child y aplica el estilo directamente al último elemento.
+          &:last-child {
+            border-right: none;
           }
         }
       }

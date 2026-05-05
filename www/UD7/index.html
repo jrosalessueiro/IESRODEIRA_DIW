@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Proyecto de Javascript</title>
     <!-- Enlace al archivo CSS que creamos antes -->
-    <link rel="stylesheet" type="text/css" href="estilo.css">
+    <link rel="stylesheet" type="text/css" href="scss/estilo.css">
 </head>
 
 <body>
@@ -37,8 +37,22 @@
         <section id="content1">
             <h2>Main</h2>
             <div class="container">
-                <div class="full-image cielo"></div>
-                <div class="full-image rojas"></div>
+                <div class="cielo"></div>
+                <div class="rojo"></div>
+            </div>
+            <div class="zona-extra">
+                <div class="card-1">
+                    <h5>Info A</h5>
+                    <p>Contenido generado con lógica SASS.</p>
+                </div>
+                <div class="card-2">
+                    <h5>Info B</h5>
+                    <p>Fondo condicional aplicado.</p>
+                </div>
+                <div class="card-3">
+                    <h5>Info C</h5>
+                    <p>Ancho calculado por función.</p>
+                </div>
             </div>
         </section>
 
@@ -53,7 +67,7 @@
             <h4><span>Identifícate</span></h4>
             <div id="login">
                 <form>
-                    <label>Nombre de usuario:</label>
+                    <label>Nombre:</label>
                     <input type="text" name="user">
 
                     <label>Correo:</label>

@@ -1,7 +1,10 @@
+// Importamos la configuración básica para que este archivo reconozca fuentes y mixins.
 @import "variables";
 @import "generales";
 
-// --- RESET GLOBAL ---
+/* --- RESET GLOBAL --- */
+// SASS permite aplicar variables ($fuente-base) incluso en selectores universales,
+// asegurando que cualquier cambio en 'variables' afecte a toda la web al instante.
 * {
   margin: 0;
   padding: 0;
@@ -10,26 +13,29 @@
 }
 
 body {
-  background: url("img/hojas.jpg") no-repeat center center fixed;
+  background: url("../img/hojas.jpg") no-repeat center center fixed;
   background-size: cover;
 }
 
-// --- HERENCIA EN CAPA DE SELECCIÓN ---
-// Creamos una clase "fantasma" que no se compila si no se usa (%) o una clase normal
+/* --- HERENCIA (@extend) --- */
+// Esta es una de las funciones más potentes de SASS para optimizar el código.
+// .cuadro-base define un estilo común.
 .cuadro-base {
   width: 25px;
   height: 25px;
   margin-bottom: 8px;
-  border: 1px solid white; // Borde blanco según CSS original[cite: 1]
+  border: 1px solid white;
 }
 
 #seleccion {
   position: absolute;
   left: 20px;
-  top: 350px;
+  top: 475px;
   z-index: 10;
 
-  // Los tres colores heredan la forma y el borde de .cuadro-base
+  /* --- USO DE @EXTEND --- */
+  // En lugar de copiar y pegar las mismas 4 líneas en cada ID, "heredamos" de .cuadro-base.
+  // SASS agrupa estos selectores en una sola línea (ej: #verde, #rojo, #azul { ... }).
   #verde {
     @extend .cuadro-base;
     background: #1a4d2e;
@@ -44,15 +50,19 @@ body {
   }
 }
 
-// --- IMPORTACIÓN DE LOS MÓDULOS ---
-// El orden importa: primero variables/mixins, luego el contenido
+/* --- ARQUITECTURA MODULAR (IMPORTACIONES FINALES) --- */
+// Dividimos el proyecto en archivos lógicos (header, footer, etc.) para que el código sea fácil de encontrar.
+// Al compilar, SASS unirá todo esto en un solo 'estilo.css', ahorrando peticiones HTTP al servidor.
 @import "header";
 @import "main";
 @import "aside";
 @import "footer";
-@import "mediaquery"; // Mediaqueries al final para que tengan prioridad
 
-// Clase auxiliar para floats[cite: 1]
+// Las Media Queries se importan al final para que sobreescriban los estilos anteriores
+// según la cascada natural de CSS.
+@import "mediaquery";
+
+// Clase auxiliar para la limpieza de floats (diseño clásico)
 .clearfix {
   clear: both;
 }

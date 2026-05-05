@@ -1,37 +1,34 @@
-// --- VARIABLES DE COLORES ---
-// Guardamos los colores en variables para facilitar el mantenimiento
-$color-principal: #1a4d2e; // Verde oscuro del logo
-$color-gris-menu: #cccccc; // Fondo del nav
-$color-borde-menu: #999999; // Línea inferior del nav
-$color-texto-oscuro: #444444; // Color de fuente general
-$color-blanco: #ffffff; // Color sólido del #global
+/* --- VARIABLES DE COLORES --- */
+$color-principal: #1a4d2e;
+$color-gris-menu: #cccccc;
+$color-borde-menu: #999999;
+$color-texto-oscuro: #444444;
+$color-blanco: #ffffff;
+$color-negro: #000000;
+$color-rojo: #d9534f;
+$color-azul: #337ab7;
+$color-verde: #1a4d2e;
 
-// --- VARIABLES DE FUENTE ---
+/* --- VARIABLES DE TIPOGRAFÍA --- */
+// Centralizamos la fuente y el tamaño base para que toda la web sea coherente.
 $fuente-base: Arial, Helvetica, sans-serif;
 $tamano-base: 14px;
 
-// --- LISTAS Y MAPAS (Para los bucles) ---
-// Lista de colores para los enlaces del menú[cite: 1]
+/* --- ESTRUCTURAS DE DATOS COMPLEJAS --- */
+
+// 1. LISTAS: Son conjuntos de valores simples.
+// SASS las usa para alimentar bucles (@for) y asignar estilos en serie.
 $colores-nav: #444, #d9534f, #337ab7, #444;
 
-// Mapa de configuración para el footer: (Nombre: (Color, Alto, Tamaño Letra, Color Texto))
+// Podemos usar variables dentro de otras listas, creando una jerarquía lógica.
+$colores-menu-nuevo: $color-negro, $color-rojo, $color-azul, $color-verde;
+
+// 2. MAPAS (@MAP): Es la estructura más avanzada de SASS (clave: valor).
+// Permite guardar múltiples propiedades bajo un solo nombre (ej: "uno").
+// Mejora el CSS al permitir que un bucle cree secciones enteras automáticamente en el footer.
 $footer-data: (
-  "uno": (
-    #0000ff,
-    180px,
-    120px,
-    yellow,
-  ),
-  "dos": (
-    #adff2f,
-    140px,
-    95px,
-    black,
-  ),
-  "tres": (
-    #ff0000,
-    100px,
-    50px,
-    white,
-  ),
+  // Clave: (Fondo, Alto, Tamaño Fuente, Color Texto)
+  "uno": (#0000ff, 180px, 120px, yellow),
+  "dos": (#adff2f, 140px, 95px, black),
+  "tres": (#ff0000, 100px, 50px, white)
 );

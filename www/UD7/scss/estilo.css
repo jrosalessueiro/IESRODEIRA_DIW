@@ -1,18 +1,386 @@
-/* Error: Undefined mixin.
- *   ,
- * 8 |     @include caja-estandar; // Aplicamos el mixin de bordes y sombras
- *   |     ^^^^^^^^^^^^^^^^^^^^^^
- *   '
- *   _aside.scss 8:5   @import
- *   estilo.scss 51:9  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Undefined mixin.\a   \2577 \a 8 \2502      @include caja-estandar; // Aplicamos el mixin de bordes y sombras\d\a   \2502      ^^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   _aside.scss 8:5   @import\a   estilo.scss 51:9  root stylesheet";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
+
+body {
+  background: url("../img/hojas.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+.cuadro-base, #seleccion #azul, #seleccion #rojo, #seleccion #verde {
+  width: 25px;
+  height: 25px;
+  margin-bottom: 8px;
+  border: 1px solid white;
+}
+
+#seleccion {
+  position: absolute;
+  left: 20px;
+  top: 475px;
+  z-index: 10;
+}
+#seleccion #verde {
+  background: #1a4d2e;
+}
+#seleccion #rojo {
+  background: #d9534f;
+}
+#seleccion #azul {
+  background: #337ab7;
+}
+#seleccion .cuadro-base, #seleccion #verde, #seleccion #rojo, #seleccion #azul {
+  width: 25px;
+  height: 25px;
+  margin-bottom: 8px;
+  border: 1px solid white;
+}
+
+header {
+  width: 100%;
+  background: transparent;
+}
+header #logo {
+  background-color: #1a4d2e;
+  width: 280px;
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+header #logo h1 {
+  color: #ffffff;
+  letter-spacing: 5px;
+  font-size: 40px;
+}
+header nav#menu {
+  background-color: #cccccc;
+  height: 45px;
+  border-bottom: 2px solid #999999;
+  width: 100%;
+}
+header nav#menu ul {
+  list-style: none;
+  display: flex;
+  height: 100%;
+  padding-left: 20px;
+  align-items: center;
+}
+header nav#menu ul li:nth-child(1) {
+  padding: 0 15px;
+  border-right: 0.5px solid #666;
+}
+header nav#menu ul li:nth-child(1) a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 15px;
+  color: #000000;
+}
+header nav#menu ul li:nth-child(1):last-child {
+  border-right: none;
+}
+header nav#menu ul li:nth-child(2) {
+  padding: 0 15px;
+  border-right: 1px solid #666;
+}
+header nav#menu ul li:nth-child(2) a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 16px;
+  color: #d9534f;
+}
+header nav#menu ul li:nth-child(2):last-child {
+  border-right: none;
+}
+header nav#menu ul li:nth-child(3) {
+  padding: 0 15px;
+  border-right: 1.5px solid #666;
+}
+header nav#menu ul li:nth-child(3) a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 17px;
+  color: #337ab7;
+}
+header nav#menu ul li:nth-child(3):last-child {
+  border-right: none;
+}
+header nav#menu ul li:nth-child(4) {
+  padding: 0 15px;
+  border-right: 2px solid #666;
+}
+header nav#menu ul li:nth-child(4) a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 18px;
+  color: #1a4d2e;
+}
+header nav#menu ul li:nth-child(4):last-child {
+  border-right: none;
+}
+
+#global {
+  width: 70%;
+  margin: 40px auto;
+  background-color: #ffffff;
+  padding: 30px;
+  overflow: hidden;
+}
+#global section#content1 {
+  width: 100%;
+  margin-bottom: 20px;
+}
+#global section#content1 h2 {
+  margin-bottom: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#global section#content1 .container {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+#global section#content1 .container .cielo {
+  background-size: cover;
+  background-position: center;
+  flex: 1;
+  height: 250px;
+  background-image: url("../img/cielo.jpg");
+}
+#global section#content1 .container .rojo {
+  background-size: cover;
+  background-position: center;
+  flex: 1;
+  height: 250px;
+  background-image: url("../img/rojo.jpg");
+}
+#global section#content1 .zona-extra {
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+#global section#content1 .zona-extra .card-1 {
+  width: 31.3333333333%;
+  padding: 15px;
+  border-radius: 8px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #1a4d2e;
+  color: white;
+}
+#global section#content1 .zona-extra .card-1 h5 {
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+#global section#content1 .zona-extra .card-1 p {
+  font-size: 13px;
+}
+#global section#content1 .zona-extra .card-2 {
+  width: 31.3333333333%;
+  padding: 15px;
+  border-radius: 8px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f2f2f2;
+  border: 1px solid #1a4d2e;
+  color: #333;
+}
+#global section#content1 .zona-extra .card-2 h5 {
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+#global section#content1 .zona-extra .card-2 p {
+  font-size: 13px;
+}
+#global section#content1 .zona-extra .card-3 {
+  width: 31.3333333333%;
+  padding: 15px;
+  border-radius: 8px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #1a4d2e;
+  color: white;
+}
+#global section#content1 .zona-extra .card-3 h5 {
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+#global section#content1 .zona-extra .card-3 p {
+  font-size: 13px;
+}
+#global section#content1 .tabla-info {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#global section#content1 .tabla-info tr:nth-child(even) {
+  background: #f9f9f9;
+}
+#global section#content1 .tabla-info tr th {
+  background: #1a4d2e;
+  color: white;
+  padding: 12px;
+  text-align: left;
+}
+#global section#content1 .tabla-info tr td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+#global section#content1 .tabla-info tr td .btn-ver {
+  display: inline-block;
+  padding: 6px 12px;
+  background: #1a4d2e;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+#global section#content1 .tabla-info tr td .btn-ver:hover {
+  background: rgb(45.3106796117, 134.1893203883, 80.1650485437);
+  cursor: pointer;
+}
+
+#content1 {
+  width: 100%;
+  float: none;
+}
+
+aside#sidebar {
+  width: 30%;
+  float: right;
+  margin-top: 20px;
+}
+aside#sidebar h4 {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  margin: 20px 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333;
+}
+aside#sidebar h4::before {
+  content: "";
+  flex: 1;
+  height: 9px;
+  background: #e0e0e0;
+  margin-right: 15px;
+}
+aside#sidebar h4::after {
+  content: "";
+  flex: 1;
+  height: 9px;
+  background: #e0e0e0;
+  margin-left: 15px;
+}
+aside#sidebar #about,
+aside#sidebar #login {
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  padding: 10px;
+}
+aside#sidebar #about p,
+aside#sidebar #login p {
+  text-align: justify;
+  font-size: 15px;
+  line-height: 1.5;
+}
+aside#sidebar #login form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+aside#sidebar #login form label {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  display: block;
+}
+aside#sidebar #login form input[type=text],
+aside#sidebar #login form input[type=password],
+aside#sidebar #login form input[type=email] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+aside#sidebar #login form input[type=submit] {
+  width: auto;
+  padding: 10px 30px;
+  background-color: #e0e0e0;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+aside#sidebar #login form input[type=submit]:hover {
+  background-color: rgb(229.5, 229.5, 229.5);
+}
+aside#sidebar img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 15px auto;
+}
+
+footer {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+}
+footer .caja_uno {
+  flex: 1;
+  background-color: #0000ff;
+  height: 180px;
+  color: yellow;
+  padding-left: 10px;
+}
+footer .caja_uno h1,
+footer .caja_uno h2,
+footer .caja_uno h3 {
+  margin: 0;
+  line-height: 1;
+  font-size: 120px;
+}
+footer .caja_dos {
+  flex: 1;
+  background-color: #adff2f;
+  height: 140px;
+  color: black;
+  padding-left: 10px;
+}
+footer .caja_dos h1,
+footer .caja_dos h2,
+footer .caja_dos h3 {
+  margin: 0;
+  line-height: 1;
+  font-size: 95px;
+}
+footer .caja_tres {
+  flex: 1;
+  background-color: #ff0000;
+  height: 100px;
+  color: white;
+  padding-left: 10px;
+}
+footer .caja_tres h1,
+footer .caja_tres h2,
+footer .caja_tres h3 {
+  margin: 0;
+  line-height: 1;
+  font-size: 50px;
+}
+
+.clearfix {
+  clear: both;
+}
+
+/*# sourceMappingURL=estilo.css.map */

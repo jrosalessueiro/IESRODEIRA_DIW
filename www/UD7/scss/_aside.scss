@@ -1,53 +1,120 @@
+/* --- IMPORTACIÓN DE MÓDULOS --- */
+// SASS nos permite dividir el código en archivos pequeños.
+// @import trae las variables y funciones para que estén disponibles aquí.
+@import "variables";
+@import "generales";
+
+/* --- ANIDACIÓN (NESTING) --- */
+// En CSS escribiríamos cada vez "aside#sidebar h4", "aside#sidebar img", etc.
+// Con SASS anidamos los selectores para ver la jerarquía del HTML claramente.
 aside#sidebar {
   width: 30%;
-  float: right; // Para que se pegue a la derecha
+  float: right;
+  margin-top: 20px;
 
-  // Anidación de elementos internos
-  #about,
-  #login {
-    @include caja-estandar; // Aplicamos el mixin de bordes y sombras
-    margin-bottom: 20px;
-    background-color: white;
+  // Anidamos h4: SASS lo compilará como "aside#sidebar h4"
+  h4 {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    margin: 20px 0;
 
-    h4 {
-      border-bottom: 2px solid $color-gris-fondo;
-      margin-bottom: 10px;
-      span {
-        font-weight: bold;
-      }
+    // USO DE VARIABLE: Centralizamos el tipo de letra para no repetirlo
+    font-family: $fuente-base;
+    color: #333;
+
+    /* --- CARÁCTER & (REFERENCIA AL PADRE) --- */
+    // El símbolo '&' en SASS representa al selector padre (h4).
+    // '&::before' se compila como 'h4::before'.
+    &::before {
+      content: "";
+      flex: 1;
+      height: 9px;
+      background: #e0e0e0;
+      margin-right: 15px;
+    }
+
+    &::after {
+      content: "";
+      flex: 1;
+      height: 9px;
+      background: #e0e0e0;
+      margin-left: 15px;
     }
   }
 
-  #about img {
-    width: 100%; // La imagen del caracol
-    height: auto;
+  // Agrupamos selectores anidados para aplicar estilos a varios IDs a la vez
+  #about,
+  #login {
+    /* --- MIXINS (@include) --- */
+    // En lugar de copiar 5 líneas de borde y sombra, usamos un mixin.
+    // Esto ahorra código y facilita cambios globales.
+    @include caja-estandar;
+
+    margin-bottom: 20px;
+
+    // USO DE VARIABLE: Garantizamos que el blanco sea el mismo en toda la web.
+    background-color: $color-blanco;
+    padding: 10px;
+
+    // Anidación del párrafo dentro de los bloques
+    p {
+      text-align: justify;
+      font-size: 15px;
+      line-height: 1.5;
+    }
   }
 
-  // Estilo para el formulario dentro del aside
+  /* --- ESTRUCTURA DE FORMULARIO --- */
   #login form {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
 
     label {
       margin-top: 10px;
-      font-family: $fuente-principal;
+      margin-bottom: 5px;
+      font-weight: bold;
+      display: block;
     }
 
+    // Listado de selectores anidados para aplicar el mismo estilo a varios inputs
     input[type="text"],
-    input[type="password"] {
-      padding: 5px;
+    input[type="password"],
+    input[type="email"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
       border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
     }
 
     input[type="submit"] {
-      margin-top: 15px;
-      background-color: $color-gris-fondo;
+      width: auto;
+      padding: 10px 30px;
+      background-color: #e0e0e0;
+      border: 1px solid #ccc;
       cursor: pointer;
-      transition: background-color 0.3s; // Transición solicitada
+      transition: background-color 0.3s;
 
+      /* --- ESTADO HOVER CON & --- */
+      // SASS facilita los estados como :hover o :active sin repetir el selector.
       &:hover {
-        background-color: aclararColor($color-gris-fondo); // Uso de tu función
+        /* --- FUNCIÓN PERSONALIZADA --- */
+        // SASS permite ejecutar lógica. Aquí llamamos a aclararColor()
+        // para que calcule el tono automáticamente basándose en la variable.
+        background-color: aclararColor($color-gris-menu, 10%);
       }
     }
+  }
+
+  // Estilo para la imagen, anidado para que solo afecte a la imagen del sidebar
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 15px auto;
   }
 }

@@ -1,26 +1,44 @@
+/* --- IMPORTACIÓN DE VARIABLES --- */
 @import "variables";
 
+/* --- BLOQUE PADRE: FOOTER --- */
+// Utilizamos anidación para agrupar todos los estilos relacionados con el pie de página en un solo bloque visual.
 footer {
   display: flex;
   width: 100%;
   align-items: flex-start;
 
-  // --- BUCLE DEL FOOTER ---
-  // Extraemos cada valor del mapa $footer-data (color, alto, tamaño_letra, color_texto)
+  /* --- ESTRUCTURA DE CONTROL: BUCLE @EACH --- */
+  // En lugar de escribir tres clases manuales (.caja_uno, .caja_dos, .caja_tres),
+  // recorremos el mapa '$footer-data' definido en variables para generar el código automáticamente.
+
+  // $nombre: representa la clave (uno, dos, tres).
+  // $propiedades: representa la lista de valores (color, alto, tamaño_letra, color_texto).
   @each $nombre, $propiedades in $footer-data {
+    /* --- INTERPOLACIÓN (#{}) --- */
+    // SASS permite insertar variables dentro de nombres de selectores.
+    // '#{$nombre}' se convierte en el texto real (ej: .caja_uno) al compilar.
     .caja_#{$nombre} {
-      flex: 1; // Anchos iguales
-      background-color: nth($propiedades, 1);
-      height: nth($propiedades, 2);
-      color: nth($propiedades, 4);
+      flex: 1; // Distribuye el espacio equitativamente.
+
+      /* --- FUNCIÓN DE LISTA: nth() --- */
+      // SASS trata los valores del mapa como listas. Con 'nth' extraemos el valor por su posición.
+      // Mejora CSS permitiendo cambiar todo el diseño del footer solo tocando el archivo de variables.
+      background-color: nth($propiedades, 1); // Extrae el color de fondo.
+      height: nth($propiedades, 2); // Extrae la altura.
+      color: nth($propiedades, 4); // Extrae el color del texto.
       padding-left: 10px;
 
-      // Anidación de los títulos dentro de cada caja
+      /* --- ANIDACIÓN MULTIPLE --- */
+      // Agrupamos h1, h2 y h3 dentro de la clase generada. SASS compilará esto como:
+      // .caja_uno h1, .caja_uno h2, .caja_uno h3, etc.
       h1,
       h2,
       h3 {
         margin: 0;
         line-height: 1;
+
+        // REQUISITO TÉCNICO: Aplicamos el tamaño de fuente específico para cada caja desde el mapa.
         font-size: nth($propiedades, 3);
       }
     }
