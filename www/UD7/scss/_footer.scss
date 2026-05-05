@@ -1,25 +1,28 @@
+@import "variables";
+
 footer {
   display: flex;
   width: 100%;
+  align-items: flex-start;
 
-  // Lista con los nombres de las clases exactos de tu HTML
-  $nombres: "uno", "dos", "tres";
-  $colores-footer: blue, darkblue, red;
+  // --- BUCLE DEL FOOTER ---
+  // Extraemos cada valor del mapa $footer-data (color, alto, tamaño_letra, color_texto)
+  @each $nombre, $propiedades in $footer-data {
+    .caja_#{$nombre} {
+      flex: 1; // Anchos iguales
+      background-color: nth($propiedades, 1);
+      height: nth($propiedades, 2);
+      color: nth($propiedades, 4);
+      padding-left: 10px;
 
-  @for $i from 1 through 3 {
-    // Seleccionamos el nombre de la lista según la posición $i
-    $clase: nth($nombres, $i);
-
-    .caja_#{$clase} {
-      flex: 1;
-      height: 100px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: yellow; // Según la imagen, las letras son amarillas
-      background-color: nth($colores-footer, $i);
-      font-size: 1.5em + ($i * 0.5); // Operación SASS para variar el tamaño
-      border: 1px solid black;
+      // Anidación de los títulos dentro de cada caja
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        line-height: 1;
+        font-size: nth($propiedades, 3);
+      }
     }
   }
 }

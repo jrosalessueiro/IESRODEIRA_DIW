@@ -1,180 +1,271 @@
-header {
-  background-image: url("img/hojas.jpg");
-}
-header #logo h1 {
-  background-color: #1a4d2e;
-  color: white;
-  display: inline-block;
-  padding: 10px 40px;
-}
-header nav#menu {
-  background-color: #ccc;
-}
-header nav#menu ul {
-  display: flex;
-  list-style: none;
-}
-header nav#menu ul li:nth-child(1) a {
-  color: #922b21;
-  font-size: 18px;
-  border-left: 1px solid black;
-  text-decoration: none;
-  padding: 10px;
-}
-header nav#menu ul li:nth-child(2) a {
-  color: #154360;
-  font-size: 20px;
-  border-left: 2px solid black;
-  text-decoration: none;
-  padding: 10px;
-}
-header nav#menu ul li:nth-child(3) a {
-  color: #1a4d2e;
-  font-size: 22px;
-  border-left: 3px solid black;
-  text-decoration: none;
-  padding: 10px;
-}
-header nav#menu ul li:nth-child(4) a {
-  color: #444;
-  font-size: 24px;
-  border-left: 4px solid black;
-  text-decoration: none;
-  padding: 10px;
+/* --- 1. RESET Y CONFIGURACIÓN BASE --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-#seleccion #azul, #seleccion #rojo, #seleccion #verde {
-  width: 30px;
-  height: 30px;
-  border: 1px solid black;
-  margin-bottom: 5px;
-}
-
-#seleccion #verde {
-  background-color: green;
-}
-#seleccion #rojo {
-  background-color: red;
-}
-#seleccion #azul {
-  background-color: blue;
-}
-
-.formato-imagen, #content1 .image,
-#content2 .image {
-  border: 5px solid white;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s;
-}
-
-#content1 .image,
-#content2 .image {
-  display: inline-block;
-  width: 200px;
-  height: 150px;
+body {
+  /* La imagen de hojas verdes se ve en toda la pantalla (Header, Body, Footer) */
+  background: url("img/hojas.jpg") no-repeat center center fixed;
   background-size: cover;
-  margin: 10px;
-}
-#content1 .image:nth-child(1),
-#content2 .image:nth-child(1) {
-  background-image: url("img/image1.jpg");
-  transform: scale(0.95);
-}
-#content1 .image:nth-child(2),
-#content2 .image:nth-child(2) {
-  background-image: url("img/image2.jpg");
-  transform: scale(1);
-}
-#content1 .image:nth-child(3),
-#content2 .image:nth-child(3) {
-  background-image: url("img/image3.jpg");
-  transform: scale(1.05);
+  margin: 0;
 }
 
-aside#sidebar {
-  width: 30%;
-  float: right;
+/* --- 2. CABECERA (HEADER) --- */
+header {
+  width: 100%; /* Ocupa el ancho completo */
+  background: transparent;
 }
-aside#sidebar #about,
-aside#sidebar #login {
-  border: 1px solid #000;
-  padding: 10px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-  margin-bottom: 20px;
-  background-color: white;
+
+#logo {
+  background-color: #1a4d2e;
+  width: 280px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-aside#sidebar #about h4,
-aside#sidebar #login h4 {
-  border-bottom: 2px solid #ccc;
-  margin-bottom: 10px;
+
+#logo h1 {
+  color: white;
+  letter-spacing: 5px;
+  font-size: 40px;
 }
-aside#sidebar #about h4 span,
-aside#sidebar #login h4 span {
+
+/* Menú de navegación ocupa el ancho completo de la pantalla */
+#menu {
+  background-color: #cccccc;
+  height: 45px;
+  border-bottom: 2px solid #999;
+  width: 100%;
+}
+
+#menu ul {
+  list-style: none;
+  display: flex;
+  padding-left: 20px;
+  align-items: center;
+  height: 100%;
+}
+
+#menu ul li {
+  padding: 0 15px;
+  border-right: 1px solid #666;
+}
+
+#menu ul li a {
+  text-decoration: none;
+  color: #444;
+  text-transform: uppercase;
+  font-size: 14px;
   font-weight: bold;
 }
-aside#sidebar #about img {
+
+#menu ul li:nth-child(2) a {
+  color: #d9534f;
+} /* RELOJ en rojo */
+#menu ul li:nth-child(3) a {
+  color: #337ab7;
+} /* SOBRE MI en azul */
+
+/* --- 3. SELECTOR LATERAL (Cuadraditos en el body a la izquierda) --- */
+#seleccion {
+  position: absolute; /* Para que flote sobre el fondo de hojas del body */
+  left: 20px;
+  top: 350px;
+  z-index: 10;
+}
+
+#seleccion div {
+  width: 25px;
+  height: 25px;
+  margin-bottom: 8px;
+  border: 1px solid #333;
+}
+
+#verde {
+  background: #1a4d2e;
+}
+#rojo {
+  background: #d9534f;
+}
+#azul {
+  background: #337ab7;
+}
+
+/* --- 4. CUERPO CENTRAL (ZONA BLANCA OPACA) --- */
+#global {
+  width: 70%; /* No ocupa el ancho completo */
+  margin: 40px auto; /* Centrado y separado del header/footer */
+  background-color: white; /* Blanco opaco, sin transparencia */
+  padding: 30px;
+  min-height: 700px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Imágenes del Main en paralelo (una al lado de la otra) y sin marcos */
+#content1 .container {
+  display: flex;
+  gap: 15px; /* Espacio entre las dos imágenes */
+  margin-top: 15px;
+}
+
+/* Estilo para los divs que contienen las imágenes */
+.full-image {
+  flex: 1;
+  height: 300px; /* Aumentamos de 180px a 250px */
+  background-size: cover;
+  background-position: center;
+  border: none;
+}
+
+#content1 .container .image {
+  flex: 1; /* Para que ocupen el ancho del main en paralelo */
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  border: none; /* Sin marcos blancos */
+}
+
+/* Rutas de las imágenes (Asegúrate de que la carpeta img existe) */
+.cielo {
+  background-image: url("img/cielo.jpg");
+}
+
+.rojas {
+  background-image: url("img/rojo.jpg");
+}
+
+#content1 .container .image:nth-child(1) {
+  background-image: url("img/cielo.jpg");
+}
+#content1 .container .image:nth-child(2) {
+  background-image: url("img/rojo.jpg");
+}
+
+/* --- 5. SIDEBAR (LATERAL DERECHO) --- */
+#sidebar {
+  float: right;
+  width: 30%;
+  margin-top: 20px;
+}
+
+#sidebar h4 {
+  display: flex;
+  align-items: center;
+  color: #666;
+  margin: 15px 0;
+  font-size: 14px;
+}
+
+#sidebar h4::before,
+#sidebar h4::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #ccc;
+}
+
+#sidebar img {
   width: 100%;
   height: auto;
 }
-aside#sidebar #login form {
+
+#sidebar p {
+  font-size: 26px;
+  color: #333;
+  margin-top: 8px;
+  text-align: justify;
+}
+
+#login form {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Alinea los hijos en vertical */
 }
-aside#sidebar #login form label {
+
+#login label {
+  font-size: 13px;
   margin-top: 10px;
-  font-family: "Arial", sans-serif;
+  font-weight: bold;
 }
-aside#sidebar #login form input[type=text],
-aside#sidebar #login form input[type=password] {
+
+#login input[type="text"],
+#login input[type="password"] {
+  width: 100%; /* Ocupa todo el ancho del sidebar */
+  height: 30px;
   padding: 5px;
+  margin-top: 3px;
   border: 1px solid #ccc;
 }
-aside#sidebar #login form input[type=submit] {
+
+#login input[type="submit"] {
+  width: fit-content; /* El botón no ocupa todo el ancho, solo su texto */
   margin-top: 15px;
-  background-color: #ccc;
+  padding: 5px 15px;
+  background: #eee;
+  border: 1px solid #999;
   cursor: pointer;
-  transition: background-color 0.3s;
-}
-aside#sidebar #login form input[type=submit]:hover {
-  background-color: white;
 }
 
+/* --- 6. FOOTER ANCHO COMPLETO Y ESCALONADO --- */
 footer {
   display: flex;
-  width: 100%;
-}
-footer .caja_uno {
-  flex: 1;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: yellow;
-  background-color: blue;
-  font-size: 2em;
-  border: 1px solid black;
-}
-footer .caja_dos {
-  flex: 1;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: yellow;
-  background-color: darkblue;
-  font-size: 2.5em;
-  border: 1px solid black;
-}
-footer .caja_tres {
-  flex: 1;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: yellow;
-  background-color: red;
-  font-size: 3em;
-  border: 1px solid black;
+  width: 100%; /* Ancho completo */
+  align-items: flex-start; /* Para que las alturas sean desiguales */
 }
 
-/*# sourceMappingURL=estilos.css.map */
+.caja_uno,
+.caja_dos,
+.caja_tres {
+  flex: 1; /* Anchos iguales para las tres cajas */
+  padding: 0; /* Texto alineado arriba a la izquierda por defecto */
+}
+
+.caja_uno {
+  background-color: #0000ff; /* Azul sólido */
+  height: 180px; /* La más alta */
+  color: yellow;
+}
+
+.caja_dos {
+  background-color: #adff2f; /* Verde lima sólido */
+  height: 140px;
+  color: black;
+}
+
+.caja_tres {
+  background-color: #ff0000; /* Rojo sólido */
+  height: 100px; /* La más bajita */
+  color: white;
+}
+
+/* Regla específica para los textos */
+footer h1,
+footer h2,
+footer h3 {
+  margin: 0; /* Elimina el margen superior por defecto de los h1, h2, h3 */
+  line-height: 1; /* Reduce el espacio entre líneas al mínimo para que no haya aire arriba */
+  padding: 0; /* Asegura que no haya relleno interno */
+  text-align: left; /* Alineado a la izquierda según la imagen */
+}
+.caja_uno h1,
+.caja_dos h2,
+.caja_tres h3 {
+  padding-left: 10px;
+  padding-top: 0px;
+}
+/* Tamaños de texto escalonados */
+footer h1 {
+  font-size: 120px;
+}
+footer h2 {
+  font-size: 95px;
+}
+footer h3 {
+  font-size: 50px;
+}
+
+.clearfix {
+  clear: both;
+}

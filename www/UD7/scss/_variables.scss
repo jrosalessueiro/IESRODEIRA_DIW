@@ -1,10 +1,37 @@
-// Colores principales
-$color-verde: #1a4d2e;
-$color-rojo: #922b21;
-$color-azul: #154360;
-$color-gris-fondo: #ccc;
-$color-blanco: #ffffff;
+// --- VARIABLES DE COLORES ---
+// Guardamos los colores en variables para facilitar el mantenimiento
+$color-principal: #1a4d2e; // Verde oscuro del logo
+$color-gris-menu: #cccccc; // Fondo del nav
+$color-borde-menu: #999999; // Línea inferior del nav
+$color-texto-oscuro: #444444; // Color de fuente general
+$color-blanco: #ffffff; // Color sólido del #global
 
-// Tipografías y tamaños
-$fuente-principal: 'Arial', sans-serif;
-$tamano-base: 16px;
+// --- VARIABLES DE FUENTE ---
+$fuente-base: Arial, Helvetica, sans-serif;
+$tamano-base: 14px;
+
+// --- LISTAS Y MAPAS (Para los bucles) ---
+// Lista de colores para los enlaces del menú[cite: 1]
+$colores-nav: #444, #d9534f, #337ab7, #444;
+
+// Mapa de configuración para el footer: (Nombre: (Color, Alto, Tamaño Letra, Color Texto))
+$footer-data: (
+  "uno": (
+    #0000ff,
+    180px,
+    120px,
+    yellow,
+  ),
+  "dos": (
+    #adff2f,
+    140px,
+    95px,
+    black,
+  ),
+  "tres": (
+    #ff0000,
+    100px,
+    50px,
+    white,
+  ),
+);

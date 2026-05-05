@@ -1,0 +1,58 @@
+@import "variables";
+@import "generales";
+
+// --- RESET GLOBAL ---
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $fuente-base;
+}
+
+body {
+  background: url("img/hojas.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+// --- HERENCIA EN CAPA DE SELECCIÓN ---
+// Creamos una clase "fantasma" que no se compila si no se usa (%) o una clase normal
+.cuadro-base {
+  width: 25px;
+  height: 25px;
+  margin-bottom: 8px;
+  border: 1px solid white; // Borde blanco según CSS original[cite: 1]
+}
+
+#seleccion {
+  position: absolute;
+  left: 20px;
+  top: 350px;
+  z-index: 10;
+
+  // Los tres colores heredan la forma y el borde de .cuadro-base
+  #verde {
+    @extend .cuadro-base;
+    background: #1a4d2e;
+  }
+  #rojo {
+    @extend .cuadro-base;
+    background: #d9534f;
+  }
+  #azul {
+    @extend .cuadro-base;
+    background: #337ab7;
+  }
+}
+
+// --- IMPORTACIÓN DE LOS MÓDULOS ---
+// El orden importa: primero variables/mixins, luego el contenido
+@import "header";
+@import "main";
+@import "aside";
+@import "footer";
+@import "mediaquery"; // Mediaqueries al final para que tengan prioridad
+
+// Clase auxiliar para floats[cite: 1]
+.clearfix {
+  clear: both;
+}

@@ -1,50 +1,70 @@
-// Clase base para los recuadros
-%recuadro-base {
-  width: 30px;
-  height: 30px;
-  border: 1px solid black;
-  margin-bottom: 5px;
-}
+@import "variables";
+@import "generales";
 
-#seleccion {
-  #verde {
-    @extend %recuadro-base;
-    background-color: green;
-  }
-  #rojo {
-    @extend %recuadro-base;
-    background-color: red;
-  }
-  #azul {
-    @extend %recuadro-base;
-    background-color: blue;
-  }
-}
+#global {
+  width: 70%; // El cuadro blanco centrado[cite: 1]
+  margin: 40px auto;
+  background-color: $color-blanco;
+  padding: 30px;
+  min-height: 700px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
 
-// Clase padre para herencia
-.formato-imagen {
-  border: 5px solid white;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s;
-}
+  section#content1 {
+    .container {
+      display: flex;
+      gap: 15px;
 
-#content1,
-#content2 {
-  .image {
-    @extend .formato-imagen; // Herencia
-    display: inline-block;
-    width: 200px;
-    height: 150px;
-    background-size: cover;
-    margin: 10px;
-  }
+      // --- BUCLE DE IMÁGENES ---
+      // Usamos @each para asignar las fotos de fondo
+      $fotos: "cielo", "rojas";
+      @each $foto in $fotos {
+        .#{$foto} {
+          @include imagen-base; // Hereda características comunes del mixin
+          height: 250px;
+          background-image: url("img/#{$foto}.jpg"); // Genera la ruta dinámicamente
+        }
+      }
+    }
 
-  // Bucle para asignar fotos distintas a cada contenedor .image
-  @for $i from 1 through 3 {
-    .image:nth-child(#{$i}) {
-      background-image: url("img/image#{$i}.jpg");
-      // Operación: cada imagen un poco más grande que la anterior
-      transform: scale(0.9 + ($i * 0.05));
+    // --- DISEÑO LIBRE: TABLA DE DATOS ---
+    // Demostración de anidación profunda y uso del carácter &
+    .tabla-info {
+      margin-top: 30px;
+      width: 100%;
+      border-collapse: collapse;
+
+      tr {
+        &:nth-child(even) {
+          background: #f9f9f9;
+        } // & referencia al tr padre
+
+        th {
+          background: $color-principal;
+          color: white;
+          padding: 10px;
+        }
+
+        td {
+          border: 1px solid #ddd;
+          padding: 10px;
+
+          // Efecto sobre botón dentro de tabla
+          .btn-ver {
+            padding: 5px;
+            background: $color-principal;
+            color: white;
+            transition: all 0.3s; // Transición requerida
+
+            &:hover {
+              background: aclararColor(
+                $color-principal,
+                15%
+              ); // Uso de la función
+              cursor: pointer;
+            }
+          }
+        }
+      }
     }
   }
 }
