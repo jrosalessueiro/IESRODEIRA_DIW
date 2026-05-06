@@ -1,0 +1,11 @@
+@mixin dispositivo($punto) {
+  @if $punto == tablet {
+    @media (min-width: $tablet) {
+      @content;
+    }
+  } @else if $punto == desktop {
+    @media (min-width: $desktop) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,74 @@
+.alerta, .alerta-exito, .alerta-peligro {
+  border: 1px solid #808080;
+  background-color: #f8f9fa;
+  color: #333;
+  padding: 10px;
+  width: 80%;
+  margin: 20px;
+}
+
+.alerta-peligro {
+  color: #ff0000;
+  border-color: #ff0000;
+}
+
+.alerta-exito {
+  background-color: #d4edda;
+  color: #155724;
+  border: 2px solid #28a745;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header {
+  height: 75px;
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+@media (min-width: 768px) {
+  header {
+    height: 100px;
+  }
+}
+@media (min-width: 1280px) {
+  header {
+    height: 110px;
+  }
+}
+
+.main-content .seccion-principal {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+}
+.main-content .seccion-accion {
+  padding: 40px;
+  text-align: center;
+}
+.main-content .seccion-accion .boton-rojo {
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  height: 45px;
+  border-radius: 5px;
+  padding: 0 20px;
+  cursor: pointer;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #990000;
+}
+
+footer {
+  height: 25px;
+  background-color: #333333;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+/*# sourceMappingURL=estilo.css.map */

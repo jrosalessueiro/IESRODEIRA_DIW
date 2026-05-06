@@ -1,0 +1,29 @@
+.main-content {
+  // Sección Principal (Mitad de pantalla con texto centrado)
+  .seccion-principal {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+  }
+
+  // Sección Título y Botón
+  .seccion-accion {
+    padding: 40px;
+    text-align: center;
+
+    .boton-rojo {
+      background-color: $color-rojo;
+      color: white;
+      border: none;
+      height: 45px;
+      border-radius: calcularBorde(5);
+      padding: 0 20px;
+      cursor: pointer;
+
+      // Aplicamos el mixin sin argumentos aquí para cumplir el ejercicio
+      @include crearBordes;
+    }
+  }
+}
